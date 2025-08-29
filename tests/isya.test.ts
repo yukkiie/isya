@@ -1,7 +1,7 @@
 import { Isya } from '../src/isya';
 
 const TEST_ACTIONS = {
-  kawaiiRed: ['hug', 'kiss', 'slap'], 
+  kawaiiRed: ['hug', 'kiss', 'slap'],
   otakuGifs: ['hug', 'kiss', 'slap'],
   nekosBest: ['hug', 'kiss', 'slap', 'poke', 'tickle']
 };
@@ -9,15 +9,24 @@ const TEST_ACTIONS = {
 describe('Isya Library', () => {
   const isya = new Isya({ kawaii: 'anonymous' });
 
-  for (const [api, actions] of Object.entries(TEST_ACTIONS)) {
+  for (const [apiName, actions] of Object.entries(TEST_ACTIONS)) {
+     const apiInstance = isya['apis'].find(a => a.name === apiName);
+
     for (const action of actions) {
-      it(`should fetch "${action}" from ${api}`, async () => {
+      it(`should fetch "${action}" from ${apiName}`, async () => {
         try {
-          const url = await isya.fetch(action);
+          if (!apiInstance) throw new Error(`API instance ${apiName} not found`);
+          
+          const url = await apiInstance.fetchAction(action);
+          
+          if (!url) throw new Error(`API returned null for action "${action}"`);
+
+          console.log(`[${apiName}] ${action} →`, url);
           expect(url).toBeDefined();
           expect(url).toMatch(/^https?:\/\//);
         } catch (err) {
-          console.warn(`Warning: ${api} failed to fetch ${action}:`, err);
+          console.error(`[${apiName}] ${action} → Failed:`, err);
+          throw err; // let Jest mark this test as failed
         }
       });
     }
