@@ -1,0 +1,28 @@
+{
+  "name": "isya",
+  "version": "1.0.0",
+  "description": "Unified anime/gif roleplay API wrapper for KawaiiRed, OtakuGifs, and NekosBest",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "keywords": ["anime", "gif", "roleplay", "kawaii", "nekosbest", "otakugifs"],
+  "author": "naykiie",
+  "license": "MIT",
+  "dependencies": {
+    "@sapphire/fetch": "^3.0.5",
+    "@sapphire/result": "^2.7.2"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.9.36",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.3.0",
+    "jest": "^30.1.1",
+    "ts-jest": "^29.4.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.2"
+  }
+}
