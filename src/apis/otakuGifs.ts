@@ -2,12 +2,19 @@ import { ApiWrapper } from './apiWrapper';
 import { safeFetchJSON } from '../utils/fetcher';
 import { Result } from '@sapphire/result';
 
+interface OtakuGifsResponse {
+  url: string;
+}
+
 export class OtakuGifs implements ApiWrapper {
   public name = 'otakuGifs';
-  private baseURL = 'https://otakugifs.xyz/api';
+  private baseURL = 'https://api.otakugifs.xyz/gif';
 
   async fetchAction(action: string): Promise<string | null> {
-    const result = await safeFetchJSON<{ url: string }>(`${this.baseURL}/${action}`);
+    const result = await safeFetchJSON<OtakuGifsResponse>(
+      `${this.baseURL}?reaction=${action}&format=gif`
+    );
+
     if (result.isErr()) return null;
 
     return result.unwrap()?.url || null;
