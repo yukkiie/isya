@@ -4,6 +4,6 @@ export interface AnimeImageResponse {
   type?: string;
 }
 
-export interface SayaOptions {
+export interface IyukiOptions {
   kawaii?: string; // Kawaii.red token
 }

@@ -3,12 +3,12 @@ import { OtakuGifs } from './apis/otakuGifs';
 import { NekosBest } from './apis/nekosBest';
 import { API_ACTIONS } from './constants';
 import { ApiWrapper } from './apis/apiWrapper';
-import { SayaOptions } from './types';
+import { IyukiOptions } from './types';
 
-export class Saya {
+export class Iyuki {
   private apis: ApiWrapper[] = [];
 
-  constructor(options: SayaOptions = {}) {
+  constructor(options: IyukiOptions = {}) {
     this.apis.push(new KawaiiRed(options.kawaii));
     this.apis.push(new OtakuGifs());
     this.apis.push(new NekosBest);
@@ -33,4 +33,4 @@ export class Saya {
   }
 }
 
-export const saya = new Saya();
+export const iyuki = new Iyuki();

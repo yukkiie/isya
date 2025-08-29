@@ -1,2 +1,2 @@
-export { Saya, saya } from './saya';
+export { Iyuki, iyuki } from './iyuki';
 export * from './types';
