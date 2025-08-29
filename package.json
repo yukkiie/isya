@@ -1,5 +1,5 @@
 {
-  "name": "isya",
+  "name": "saya",
   "version": "1.0.0",
   "description": "Unified anime/gif roleplay API wrapper for KawaiiRed, OtakuGifs, and NekosBest",
   "main": "dist/index.js",
@@ -7,11 +7,11 @@
   "files": ["dist"],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yukkiie/isya.git"
+    "url": "git+https://github.com/yukkiie/saya.git"
   },
-  "homepage": "https://github.com/yukkiie/isya#readme",
+  "homepage": "https://github.com/yukkiie/saya#readme",
   "bugs": {
-    "url": "https://github.com/yukkiie/isya/issues"
+    "url": "https://github.com/yukkiie/saya/issues"
   },
   "scripts": {
     "build": "tsc",

@@ -1,2 +1,2 @@
-export { Isya, isya } from './isya';
+export { Saya, saya } from './saya';
 export * from './types';

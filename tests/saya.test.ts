@@ -1,4 +1,4 @@
-import { Isya } from '../src/isya';
+import { Saya } from '../src/saya';
 
 const TEST_ACTIONS = {
   kawaiiRed: ['hug', 'kiss', 'slap'],
@@ -6,11 +6,11 @@ const TEST_ACTIONS = {
   nekosBest: ['hug', 'kiss', 'slap', 'poke', 'tickle']
 };
 
-describe('Isya Library', () => {
-  const isya = new Isya({ kawaii: 'anonymous' });
+describe('Saya Library', () => {
+  const saya = new Saya({ kawaii: 'anonymous' });
 
   for (const [apiName, actions] of Object.entries(TEST_ACTIONS)) {
-     const apiInstance = isya['apis'].find(a => a.name === apiName);
+     const apiInstance = saya['apis'].find(a => a.name === apiName);
 
     for (const action of actions) {
       it(`should fetch "${action}" from ${apiName}`, async () => {
