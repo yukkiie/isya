@@ -5,6 +5,14 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": ["dist"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yukkiie/isya.git"
+  },
+  "homepage": "https://github.com/yukkiie/isya#readme",
+  "bugs": {
+    "url": "https://github.com/yukkiie/isya/issues"
+  }
   "scripts": {
     "build": "tsc",
     "test": "jest"
