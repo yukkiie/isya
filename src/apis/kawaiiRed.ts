@@ -13,9 +13,9 @@ export class KawaiiRed implements ApiWrapper {
 
   async fetchAction(action: string): Promise<string | null> {
     if (!this.token) return null;
-    const result = await safeFetchJSON<{ url: string }>(`${this.baseURL}/${action}?token=${this.token}`);
+    const result = await safeFetchJSON<{ response: string }>(`${this.baseURL}/gif/${action}/${this.token}/`);
     if (result.isErr()) return null;
 
-    return result.unwrap()?.url || null;
+    return result.unwrap()?.response || null;
   }
 }

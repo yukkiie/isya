@@ -1,6 +1,6 @@
 {
   "name": "isya",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Unified anime/gif roleplay API wrapper for KawaiiRed, OtakuGifs, and NekosBest",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
