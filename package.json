@@ -1,6 +1,6 @@
 {
   "name": "iyuki",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Unified anime/gif roleplay API wrapper for KawaiiRed, OtakuGifs, and NekosBest",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -17,7 +17,7 @@
     "build": "tsc",
     "test": "jest"
   },
-  "keywords": ["anime", "gif", "roleplay", "kawaii", "nekosbest", "otakugifs"],
+  "keywords": ["anime", "gif", "roleplay", "kawaii", "nekosbest", "otakugifs", "nekosia"],
   "author": "naykiie",
   "license": "MIT",
   "dependencies": {

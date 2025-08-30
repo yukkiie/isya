@@ -1,40 +1,63 @@
 
 # Iyuki
 
-An unified API WRAPPER for Nekos.best, Kawaii.red & otakugifs.xyz. created out of frustration of while writing simple codebase but want to support multiple API Provider you need to handle core business logic when two or three API supports same endpoint you need to handle them separately and all. 
+Tired of Juggling Multiple between API and writing code for each API and fetching anime GIFs/Picture from Nekosbest, Nekosia, Otakugifs & Kawaiired ? Meet Iyuki, Iyuki will do extra work you just enjoy iyuki.fetch('slap') and enjoy. 
+
 
 
 
 
 ## Features
 
-- Unified API for Nekos.best, Kawaii.red & Otakugifs.xyz
-- Typescript Ready
-- Handles API differences internally 
-- Automatic Random API Selection if multiple API Provider supports same endpoint 
-- easy to use iyuki.fetch('slap')
+- Unified API wrapper for Nekos.best, Kawaii.red, Nekosia.cat and Otakugifs.xyz
+- TypeScript-ready with proper typings
+- Handles API differences & quirks internally 
+- Automatically selects a random API when multiple providers support the same action
+- Handles API rate limits (Nekosia only), avoids spamming requests when rate-limited.
+- super easy to use iyuki.fetch('slap');
 
 
 
 ## Installation
 
-Install Iyuki with NPM
+Install Isya with NPM
 
 ```bash
   npm install iyuki
 ```
-
+    
 ## Usage/Examples
 
 ```javascript
 import { Iyuki } from 'iyuki';
 
 async function main() {
-  const iyuki = new Iyuki({ Kawaii: 'Your_Kawaii.red_Token' });
-const slapUrl = await iyuki.fetch('slap');
-console.log(slapUrl);
+  // Initialize with optional API tokens or IPs
+  const iyuki = new Iyuki({
+    kawaii: 'Your_Kawaii.red_Token', // optional & defaults to anonymous 
+    nekosia: { ip: '123456' }        // optional id and IP availability 
+  });
 
+  // Fetch a reaction image normally
+  const hugUrl = await iyuki.fetch('hug');
+  console.log('Hug image URL:', hugUrl);
+
+  // Fetch an image from Nekosia with a specific ID
+  const vtuberUrl = await iyuki.fetch('vtuber', { id: '9876543210' });
+  console.log('Vtuber image URL from Nekosia with specific ID:', vtuberUrl);
+
+  // Fetch another reaction
+  const slapUrl = await iyuki.fetch('slap');
+  console.log('Slap image URL:', slapUrl);
 }
+
 main();
 ```
+
+
+## Contributing
+
+Contributions are always welcome!
+
+We are open to support other stable APIs & adding new feature if you want to include new API and expand new Feature. Feel free to open PR.
 

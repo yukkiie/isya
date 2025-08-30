@@ -1,6 +1,5 @@
 import { ApiWrapper } from './apiWrapper';
 import { safeFetchJSON } from '../utils/fetcher';
-import { Result } from '@sapphire/result';
 
 export class KawaiiRed implements ApiWrapper {
   public name = 'kawaiiRed';
@@ -8,11 +7,12 @@ export class KawaiiRed implements ApiWrapper {
   private baseURL = 'https://kawaii.red/api';
 
   constructor(token?: string) {
-    this.token = token;
+    this.token = token || 'anonymous';
   }
 
-  async fetchAction(action: string): Promise<string | null> {
+  async fetchAction({ action }: { action: string; id?: string }): Promise<string | null> {
     if (!this.token) return null;
+
     const result = await safeFetchJSON<{ response: string }>(
       `${this.baseURL}/gif/${action}?token=${this.token}`
     );

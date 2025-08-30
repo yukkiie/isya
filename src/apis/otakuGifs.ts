@@ -10,7 +10,7 @@ export class OtakuGifs implements ApiWrapper {
   public name = 'otakuGifs';
   private baseURL = 'https://api.otakugifs.xyz/gif';
 
-  async fetchAction(action: string): Promise<string | null> {
+  async fetchAction({ action }: { action: string; id?: string }): Promise<string | null> {
     const result = await safeFetchJSON<OtakuGifsResponse>(
       `${this.baseURL}?reaction=${action}&format=gif`
     );

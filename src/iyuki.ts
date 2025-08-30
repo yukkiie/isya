@@ -1,6 +1,7 @@
 import { KawaiiRed } from './apis/kawaiiRed';
 import { OtakuGifs } from './apis/otakuGifs';
 import { NekosBest } from './apis/nekosBest';
+import { Nekosia } from './apis/nekosia';
 import { API_ACTIONS } from './constants';
 import { ApiWrapper } from './apis/apiWrapper';
 import { IyukiOptions } from './types';
@@ -12,11 +13,12 @@ export class Iyuki {
     this.apis.push(new KawaiiRed(options.kawaii));
     this.apis.push(new OtakuGifs());
     this.apis.push(new NekosBest);
+    this.apis.push(new Nekosia(options.nekosia));
   }
 
-  async fetch(action: string): Promise<string> {
+  async fetch(action: string, options?: { id?: string }): Promise<string> {
     if (!Object.values(API_ACTIONS).some(actions => actions.includes(action))) {
-      throw new Error(`Action "${action}" is not supported by any API`);
+       throw new Error(`Action "${action}" is not supported by any API`);
     }
 
     const validApis = this.apis.filter(api => API_ACTIONS[api.name]?.includes(action));
@@ -25,8 +27,8 @@ export class Iyuki {
     const shuffled = validApis.sort(() => 0.5 - Math.random());
 
     for (const api of shuffled) {
-      const url = await api.fetchAction(action);
-      if (url) return url;
+       const url = await api.fetchAction({ action, id: options?.id });
+       if (url) return url;
     }
 
     throw new Error(`Failed to fetch "${action}" from all APIs`);

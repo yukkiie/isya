@@ -1,4 +1,4 @@
 export interface ApiWrapper {
   name: string;
-  fetchAction(action: string): Promise<string | null>;
+  fetchAction(options: { action: string; id?: string }): Promise<string | null>;
 }
